@@ -34,22 +34,20 @@ export class EmpleadosService {
 
     modificarSalario(id: string, empleadoModel: empleadoModel){
         for (let index = 0; index < this.empleados.length; index++) {
-            if (id = this.empleados[index]) {
+            if (id == this.empleados[index].id) {
                 this.empleados[index].salario = empleadoModel.salario;
-                return "El salario fue modificado";   
+                return this.empleados;   
             } else {
                 return "Error";
             }
         }
     }
 
-    despedirEmpleado(id): string {
+    despedirEmpleado(id: string) {
         for (let index = 0; index < this.empleados.length; index++) {
-            if(id = this.empleados[index]) {
-                this.empleados.splice(id,1);
-                return "La persona fue despedida";
-            } else {
-                return "La persona no es parte de la empresa";
+            if(id == this.empleados[index].id) {
+                this.empleados.splice(index,1);
+                return this.empleados;
             }
         }
     }
