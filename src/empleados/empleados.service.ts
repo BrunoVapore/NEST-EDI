@@ -32,13 +32,11 @@ export class EmpleadosService {
         return "La persona ha sido contratada";
     }
 
-    modificarSalario(id: string, empleadoModel: empleadoModel){
+    modificarSalario(id: string, salario: number){
         for (let index = 0; index < this.empleados.length; index++) {
             if (id == this.empleados[index].id) {
-                this.empleados[index].salario = empleadoModel.salario;
+                this.empleados[index].salario = salario;
                 return this.empleados;   
-            } else {
-                return "Error";
             }
         }
     }
